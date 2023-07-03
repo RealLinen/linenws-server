@@ -112,7 +112,7 @@ socket.onMessage(`default`, (id, message) => {
 ## API
 
 ```js
-const LinenWS = require('liennws-server');
+const LinenWS = require('linenws-server');
 ```
 
 - [`LinenWS`](#LinenWSserver)
