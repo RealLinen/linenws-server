@@ -1,9 +1,10 @@
-# easy-websocket-server
+# linenws-server
 
 An easy-to-use wrapper around the ws api for an express-like feel.
+This is an modified version of "easy-websocket-server", this fixes the random crashes/bugs that are annoying
 
 ```sh
-npm i easy-websocket-server
+npm i linenws-server
 ```
 
 ## Examples
@@ -11,7 +12,7 @@ npm i easy-websocket-server
 ```js
 const app = require('express')();
 const server = require('http').createServer(app);
-const easySocket = require('easy-websocket-server');
+const easySocket = require('linenws-server');
 
 const { send, broadcastAll } = easySocket.commands;
 const socket = easySocket(server);
@@ -58,7 +59,7 @@ Using the built in remoteEngine (similar to using `express.Router()`);
 // index.js
 const app = require('express')();
 const server = require('http').createServer(app);
-const socket = require('easy-websocket-server')(server);
+const socket = require('linenws-server')(server);
 const createUser = require('./remotes/create-user');
 
 socket.useRemote(`createUser`, createUser);
@@ -68,7 +69,7 @@ server.listen(3000);
 
 ```js
 // ./remotes/create-user.js
-const remote = require('easy-websocket-server').remoteEngine();
+const remote = require('linenws-server').remoteEngine();
 
 remote.onMessage(id => {
     // ...
@@ -241,7 +242,7 @@ Returns an object of all the connections.  Here is an sample of what that might 
 ### easySocket.remoteEngine()
 
 ```js
-const remote = require('easy-websocket-server').remoteEngine();
+const remote = require('linenws-server').remoteEngine();
 
 // Do something...
 
