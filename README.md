@@ -12,10 +12,10 @@ npm i linenws-server
 ```js
 const app = require('express')();
 const server = require('http').createServer(app);
-const easySocket = require('linenws-server');
+const LinenWS = require('linenws-server');
 
-const { send, broadcastAll } = easySocket.commands;
-const socket = easySocket(server);
+const { send, broadcastAll } = LinenWS.commands;
+const socket = LinenWS(server);
 
 // Listen for connections
 socket.onConnection(id => console.log(`${id} just connected!`))
@@ -112,10 +112,10 @@ socket.onMessage(`default`, (id, message) => {
 ## API
 
 ```js
-const easySocket = require('easy-socket-server');
+const LinenWS = require('liennws-server');
 ```
 
-- [`easySocket`](#easysocketserver)
+- [`LinenWS`](#LinenWSserver)
     - [`onServerUpgrade`](#socketonserverupgradecallback-next-quit-request-socket-head--void)
     - [`onConnection`](#socketonconnectioncallback-id--void)
     - [`use`](#socketusecallback-id-message-next--void)
@@ -123,20 +123,20 @@ const easySocket = require('easy-socket-server');
     - [`onClose`](#socketonclosecallback-id-code--void)
     - [`useRemote`](#socketuseremotemethod-string-remote-remoteengine)
     - [`catchErrors`](#socketcatcherrorscallback-error-id-message--void)
-- [`easySocket.commands`](#easysocketcommands)
+- [`LinenWS.commands`](#LinenWScommands)
     - [`send`](#commandssendid-method-data)
     - [`broadcastAll`](#commandsbroadcastallmethod-data)
     - [`broadcastExclude`](#commandsbroadcastexclude)
     - [`close`](#commandscloseid)
     - [`getConnections`](#commandsgetconnections-object)
-- [`easySocket.remoteEngine`](#easysocketremoteengine)
+- [`LinenWS.remoteEngine`](#LinenWSremoteengine)
     - [`onMessage`](#remoteonmessagecallback-id-message--void)
-- [`easySocket.hasConnected`](#easysockethasconnectedid-boolean)
+- [`LinenWS.hasConnected`](#LinenWShasconnectedid-boolean)
 
-### easySocket(server)
+### LinenWS(server)
 
 ```js
-const socket = easySocket(server);
+const socket = LinenWS(server);
 ```
 
 The `server` should be a http/https server instance.
@@ -178,7 +178,7 @@ The `callback` is called whenever a websocket connection closes. `id` will be th
 
 The `remote` is the remoteEngine to use for the given `method`.
 
-Now easySocket will call the `onMessage` method on the remote when the message's method property equals `method`.
+Now LinenWS will call the `onMessage` method on the remote when the message's method property equals `method`.
 
 Here is an [example](#remotes).
 
@@ -186,10 +186,10 @@ Here is an [example](#remotes).
 
 The `callback` is called every time an unhandled error or promise rejection occurs in the message processing pipeline.  `message` and `id` are the message that was being processed when the error occured, and the id of the client that sent that message.
 
-### easySocket.commands
+### LinenWS.commands
 
 ```js
-const { commands } = easySocket;
+const { commands } = LinenWS;
 ```
 
 #### commands.send(id, method, data)
@@ -212,7 +212,7 @@ Otherwise, id is the same as [`commands.broadcastAll`](#commandsbroadcastallmeth
 
 #### commands.close(id?)
 
-If and `id` is given, easySocket will close only that connection, otherwise, it will close all the connections.
+If and `id` is given, LinenWS will close only that connection, otherwise, it will close all the connections.
 
 #### commands.getConnections(): Object
 
@@ -239,7 +239,7 @@ Returns an object of all the connections.  Here is an sample of what that might 
 }
 ```
 
-### easySocket.remoteEngine()
+### LinenWS.remoteEngine()
 
 ```js
 const remote = require('linenws-server').remoteEngine();
@@ -255,11 +255,11 @@ See this [example](#remotes).
 
 The `callback` will be called when a message is recieved with a method that matches the `method` paramater in the `socket.useRemote` function.
 
-### easySocket.hasConnected(id?): Boolean
+### LinenWS.hasConnected(id?): Boolean
 
 Checks if a connection exists.
 
-The `id` is the id of the connection to check.  If no id is given, easySocket will check for at least one connection.
+The `id` is the id of the connection to check.  If no id is given, LinenWS will check for at least one connection.
 
 ## Thanks
 
