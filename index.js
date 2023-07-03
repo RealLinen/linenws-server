@@ -1,5 +1,5 @@
 const WebSocket = require('ws');
-const crypt = require("crypto")
+const crypto = require("crypto")
 const validate = require('./validate');
 
 let connections = {};
