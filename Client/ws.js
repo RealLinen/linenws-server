@@ -1,4 +1,3 @@
-<script type="text/javascript">
 const socketConnections = {};
 this.WS = {
   Connect: function(t, ...e) {
@@ -80,7 +79,4 @@ this.WS = {
     }
   }
 };
-
-</script>
-
 // Import this into ur html script with: <script scr="https://raw.githubusercontent.com/RealLinen/linenws-server/main/Client/ws.js"></script>
