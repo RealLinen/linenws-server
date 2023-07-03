@@ -79,4 +79,4 @@ this.WS = {
     }
   }
 };
-// Import this into ur html script with: <script scr="https://raw.githubusercontent.com/RealLinen/linenws-server/main/Client/ws.js"></script>
+// Import this into ur html script with: <script src="https://raw.githubusercontent.com/RealLinen/linenws-server/main/Client/ws.js" type="text/javascript"></script>
