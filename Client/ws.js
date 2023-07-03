@@ -1,3 +1,23 @@
+
+// THIS IS FOR TO IMPORT INSIDE UR HTML SCRIPT.
+/* Usage:
+(async()=>{
+    const socket = await WS.Connect("localhost:3000/ws_port") // if you dont include "wss://" or "ws://" it will automaticallly be included
+    if(typeof(socket)!=="object") return console.log("Connection Failed: "+socket) // will be a string with the reason of why the connection failed
+
+    socket.on("disconnect", async()=>{
+        console.log("Websocket Server Disconnected :(")
+    })
+    socket.on("test", async(data)=>{
+        console.log(data)
+    })
+    
+    socket.emit("message", "From client to server!")
+    
+    // to disconnect/close the websocket connection:
+    // socket.disconnect( <(optional) reason> ) // The reason will be sent before disconnecting
+})()
+*/
 const socketConnections = {};
 this.WS = {
   Connect: function(t, ...e) {
