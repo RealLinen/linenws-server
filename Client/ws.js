@@ -1,4 +1,4 @@
-<script>
+<script type="text/javascript">
 const socketConnections = {};
 this.WS = {
   Connect: function(t, ...e) {
